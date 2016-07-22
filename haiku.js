@@ -53,7 +53,7 @@ function createHaiku(structure) {
       lineThreeRemaining -= formattedData[i][1];
     } 
   }
-  return (line1+"\n"+line2+"\n"+line3).toLowerCase();
+  return (line1+"\n"+line2+"\n"+line3).toLowerCase().replace(/[(\d)]/g, "");
 }
 
 module.exports = {
