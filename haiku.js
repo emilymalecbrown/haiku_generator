@@ -4,15 +4,14 @@ var cmudictFile = readCmudictFile('./cmudict.txt');
 
 //format data from dictionary
 function readCmudictFile(file){
-	return fs.readFileSync(file).toString();
+  return fs.readFileSync(file).toString();
 }
 
 
 //creating two dimensional array that looks like ["word", "syllable format"] 
 function formatData(data){    
-  var lines = data.toString().split("\n"),
-       lineSplit;
-    var dictionaryArr = [];
+  var lines = data.toString().split("\n"), lineSplit;
+  var dictionaryArr = [];
   lines.forEach(function(line){    
     lineSplit = line.split("  ");    
       if (lineSplit[1] !== null) {
@@ -30,11 +29,11 @@ var formattedData = formatData(cmudictFile);
 //creating haiku 
 function createHaiku(structure) {
   var lineOneRemaining = structure[0][0];
-	var lineTwoRemaining = structure[1][0];
-	var lineThreeRemaining = structure[2][0];
-	var line1 = "";
-	var line2 = "";
-	var line3 = "";
+  var lineTwoRemaining = structure[1][0];
+  var lineThreeRemaining = structure[2][0];
+  var line1 = "";
+  var line2 = "";
+  var line3 = "";
   while ((lineOneRemaining+lineTwoRemaining+lineThreeRemaining) > 0) {
     //find random word in array
     var i = [Math.floor(Math.random() * formattedData.length)]; 
